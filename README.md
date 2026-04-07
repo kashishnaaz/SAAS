@@ -2,8 +2,8 @@
 
 Upload. Compress. Download. Create — all in one modern cloud-powered platform.
 
-🚀 **Live App:**
-👉 saasapp-sigma.vercel.app
+🚀 **Live App:**  
+👉 **[Open Live App](https://saasapp-sigma.vercel.app)**
 
 ---
 
