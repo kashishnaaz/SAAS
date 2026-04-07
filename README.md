@@ -1,284 +1,199 @@
-<div align="center">
+# 🎬 Cloudinary Showcase
 
-# 🎬 VidStream
+Upload. Compress. Download. Create — all in one modern cloud-powered platform.
 
-### Explore, Upload & Download Videos Seamlessly
+🚀 **Live App:**
+👉 https://cloudinary-showcase.vercel.app
 
-[![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js&logoColor=white)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Clerk Auth](https://img.shields.io/badge/Auth-Clerk-6C47FF?logo=clerk&logoColor=white)](https://clerk.com/)
-[![TailwindCSS](https://img.shields.io/badge/Styled_with-TailwindCSS-38BDF8?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+---
 
-**A powerful cloud-based platform to upload, explore, and download videos**  
-Built with Next.js 14, TypeScript, and Clerk Authentication
+## 📌 Overview
 
-• [Features](#-features) • [Installation](#️-installation--setup) • [Tech Stack](#-tech-stack)
+A full-stack SaaS application built with **Next.js 14** that allows users to:
 
-<p align="center">
-  <a href="https://cloudinary-saas-app-chi.vercel.app/">
-    <img src="https://img.shields.io/badge/Live%20App-Open%20Now-green?style=for-the-badge&logo=streamlit" alt="Streamlit App"/>
-  </a>
-</p>
+* Upload and compress videos
+* Browse a personal video gallery
+* Generate platform-ready social media images
+
+🔐 Secured with Clerk Authentication
+🗄️ Backed by PostgreSQL (NeonDB)
 
 ---
 
 ## ✨ Features
 
-<table>
-<tr>
-<td width="50%">
+### 🎥 Video Management
 
-### 🎥 **Core Functionality**
-- 📤 **Video Uploads** — Upload videos up to 70MB with title & description
-- 🎬 **Video Explorer** — Browse videos in a modern responsive grid
-- ⬇️ **One-Click Download** — Instant video downloads
-- 🔐 **Secure Authentication** — Powered by Clerk
-
-</td>
-<td width="50%">
-
-### 🎨 **User Experience**
-- 🌈 **Modern Design** — Beautiful UI with TailwindCSS
-- ✨ **Smooth Animations** — Framer Motion transitions
-- 📱 **Fully Responsive** — Perfect on all devices
-- ⚡ **Fast Performance** — Optimized with Next.js 14
-
-</td>
-</tr>
-</table>
+* 📤 **Upload Videos** — Upload videos up to 70MB with title & description
+* 🗜️ **Auto Compression** — Cloudinary-powered compression on upload
+* 🎬 **Video Gallery** — Browse uploads in a clean, responsive grid
+* ⬇️ **One-Click Download** — Download any video instantly
 
 ---
 
-## 🧠 Tech Stack
+### 🖼️ Social Media Image Generator
 
-<div align="center">
+* Generate images optimized for:
 
-| Technology | Purpose | Version |
-|:-----------|:--------|:--------|
-| <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg" width="20"/> **Next.js** | Framework for frontend & API routes | 14 (App Router) |
-| <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" width="20"/> **TypeScript** | Type-safe development | 5.0 |
-| 🔐 **Clerk** | User authentication & management | Latest |
-| ☁️ **Cloudinary** | Video storage & delivery | Latest |
-| 🎭 **Framer Motion** | Animations & transitions | Latest |
-| 🎨 **Tailwind CSS** | Modern styling framework | 3.x |
-| 📡 **Axios** | API request handling | Latest |
-| 🎯 **Lucide Icons** | Clean minimal icon set | Latest |
-
-</div>
+  * Instagram
+  * Twitter
+  * Facebook
+* Powered by Cloudinary transformation API
 
 ---
 
-## 🛠️ Installation & Setup
+### 🔐 Authentication & Data
+
+* Secure login/signup with Clerk
+* Persistent storage using Prisma ORM + NeonDB
+
+---
+
+### 🎨 UI & Experience
+
+* Smooth animations using Framer Motion
+* Fully responsive design
+* Clean modern UI with Tailwind CSS
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology       | Purpose                    |
+| ---------------- | -------------------------- |
+| ⚡ Next.js 14     | App Router framework       |
+| 🟦 TypeScript    | Type-safe development      |
+| 🔐 Clerk         | Authentication             |
+| ☁️ Cloudinary    | Media storage & processing |
+| 🗄️ Prisma       | ORM                        |
+| 🐘 NeonDB        | PostgreSQL database        |
+| 🎭 Framer Motion | Animations                 |
+| 🎨 Tailwind CSS  | Styling                    |
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ and npm/yarn installed
-- Clerk account ([Get one here](https://clerk.com))
-- Cloudinary account ([Sign up](https://cloudinary.com))
+* Node.js 18+
+* Clerk account
+* Cloudinary account
+* Neon database
 
-### 1️⃣ Clone the Repository
+---
+
+### 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/your-username/vidstream.git
-cd vidstream
+git clone https://github.com/kashishnaaz/cloudinary-showcase.git
+cd cloudinary-showcase
 ```
+
+---
 
 ### 2️⃣ Install Dependencies
 
 ```bash
 npm install
-# or
-yarn install
-# or
-pnpm install
 ```
 
-### 3️⃣ Environment Variables
+---
 
-Create a `.env.local` file in the root directory:
+### 3️⃣ Setup Environment Variables
+
+Create `.env.local` file:
 
 ```env
-# Clerk Authentication
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
-CLERK_SECRET_KEY=your_clerk_secret_key
+# Clerk
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_key
+CLERK_SECRET_KEY=your_secret
 
-# Cloudinary Configuration
-NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
-CLOUDINARY_API_KEY=your_cloudinary_api_key
-CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+# Cloudinary
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=your_name
+CLOUDINARY_API_KEY=your_key
+CLOUDINARY_API_SECRET=your_secret
+
+# Database
+DATABASE_URL=your_database_url
 ```
 
-<details>
-<summary>🔍 How to get these credentials?</summary>
+---
 
-**Clerk:**
-1. Go to [Clerk Dashboard](https://dashboard.clerk.com)
-2. Create a new application
-3. Copy the API keys from the settings
+### 4️⃣ Push Database Schema
 
-**Cloudinary:**
-1. Go to [Cloudinary Console](https://cloudinary.com/console)
-2. Navigate to Dashboard
-3. Copy your Cloud Name, API Key, and API Secret
+```bash
+npx prisma db push
+```
 
-</details>
+---
 
-### 4️⃣ Run Development Server
+### 5️⃣ Run App
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-### 5️⃣ Open in Browser
-
-Navigate to [http://localhost:3000](http://localhost:3000)
+👉 Open: http://localhost:3000
 
 ---
 
 ## 📂 Project Structure
 
 ```
-vidstream/
-├── 📁 app/
-│   ├── 📁 home/              # Video Explorer Page
-│   ├── 📁 video-upload/      # Upload Page
-│   ├── layout.tsx            # App Layout with Clerk
-│   └── page.tsx              # Landing Page
-├── 📁 components/
-│   ├── VideoCard.tsx         # Video Card Component
-│   └── Sidebar.tsx           # Sidebar Navigation
-├── 📁 pages/api/
-│   ├── videos.ts             # Fetch All Videos API
-│   └── video-upload.ts       # Video Upload Handler
-├── 📁 public/
-│   └── 📁 assets/            # Static Files
-├── 📁 styles/
-│   └── globals.css           # Global Styles
-├── .env.local                # Environment Variables
-├── package.json              # Dependencies
-└── README.md                 # Documentation
+cloudinary-showcase/
+├── app/
+│   ├── home/
+│   ├── video-upload/
+│   ├── social-share/
+│   ├── layout.tsx
+│   └── page.tsx
+├── components/
+├── prisma/
+├── .env.local
+└── README.md
 ```
 
 ---
 
-## 🎯 Usage
+## ☁️ Deployment (Vercel)
 
-### Uploading Videos
-
-1. Navigate to the **Upload** page
-2. Fill in the video title and description
-3. Select your video file (max 70MB)
-4. Click **Upload** and wait for processing
-5. Video will appear in the explorer once complete
-
-### Exploring Videos
-
-1. Go to the **Home** page
-2. Browse through the video grid
-3. Click on any video card to view details
-4. Use the download button to save videos locally
+1. Push code to GitHub
+2. Import repo in Vercel
+3. Add environment variables
+4. Deploy 🚀
 
 ---
 
-## 🚀 Deployment
+## 🛣️ Roadmap
 
-### Deploy to Vercel (Recommended)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-username/vidstream)
-
-1. Push your code to GitHub
-2. Import your repository on [Vercel](https://vercel.com)
-3. Add environment variables in Vercel dashboard
-4. Deploy!
-
-### Other Platforms
-
-- **Netlify**: Follow [this guide](https://docs.netlify.com/integrations/frameworks/next-js/)
-- **Railway**: Use their [Next.js template](https://railway.app/template/nextjs)
-- **Self-hosted**: Build with `npm run build` and start with `npm start`
-
----
-
-## 💡 Roadmap & Future Enhancements
-
-- [ ] 🧠 AI-based video tagging and categorization
-- [ ] 💬 Comment & like system for videos
-- [ ] 🔍 Advanced search and filtering
-- [ ] 📊 Video analytics dashboard
-- [ ] 👥 User profiles and playlists
-- [ ] 🎬 Video editing tools
-- [ ] 📱 Mobile app (React Native)
-- [ ] 🌐 Multi-language support
+* 🔍 Search & filter videos
+* 📊 Analytics dashboard
+* 👥 Public/private toggle
+* 🤖 AI tagging
+* 📱 Mobile app
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are what make the open-source community amazing! Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1. Fork the repo
+2. Create branch
+3. Commit changes
+4. Open Pull Request
 
 ---
 
 ## 📄 License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+MIT License
 
 ---
 
 ## 🧑‍💻 Author
 
-<div align="center">
-
-**Developed with ❤️ by [GUFRAN KHAN]**
-</div>
+Built by **Kashish Naaz**
 
 ---
 
-## 📸 Screenshots
-
-<div align="center">
-
-### 🏠 Landing Page
-![Landing Page](/public/s1.png)
-
-
-### 🎥 Video Explorer
-![Video Explorer](/public/s2.png)
-
-
-### 📤 Upload Interface
-![Upload Interface](/public/s3.png)
-
-</div>
-
----
-
-## 🙏 Acknowledgments
-
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Clerk Authentication](https://clerk.com/docs)
-- [Cloudinary](https://cloudinary.com/documentation)
-- [TailwindCSS](https://tailwindcss.com/docs)
-- [Framer Motion](https://www.framer.com/motion/)
-
----
-
-<div align="center">
-
-**⭐ Star this repo if you found it helpful!**
-
-Made with ☕ and 💻
-
-[Report Bug](https://github.com/your-username/vidstream/issues) • [Request Feature](https://github.com/your-username/vidstream/issues)
-
-</div>
+⭐ If you like this project, give it a star!
