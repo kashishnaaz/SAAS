@@ -33,11 +33,13 @@ export async function POST(request: NextRequest) {
 
     const result = await new Promise((resolve, reject) => {
       cloudinary.uploader.upload_stream(
-        {
-          resource_type: "video",
-          folder: "video-uploads",
-          transformation: [{ quality: "auto", fetch_format: "mp4" }],
-        },
+     {
+        resource_type: "video",
+        folder: "video-uploads",
+        transformation: [{ quality: "auto", fetch_format: "mp4" }],
+        timeout: 120000, // 2 minutes
+     },
+        
         (error, result) => {
           if (error) reject(error);
           else resolve(result);

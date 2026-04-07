@@ -52,78 +52,68 @@ function Home() {
     document.body.removeChild(link);
   }, []);
 
-  // -------------------------- THEMED UI --------------------------
+  const handleDelete = useCallback((id: string) => {
+    setVideos((prev) => prev.filter((v) => v.id !== id));
+  }, []);
 
-  // Loading
   if (loading || !isLoaded) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-[#18230F] text-[#A9E6BF]">
-        <Loader2 className="w-14 h-14 animate-spin mb-4 text-[#255F38]" />
-        <p className="text-xl font-semibold">Loading your videos...</p>
+      <div className="flex flex-col items-center justify-center min-h-[70vh] text-[#A78BFA]">
+        <Loader2 className="w-12 h-12 animate-spin mb-4" />
+        <p className="text-lg font-semibold text-[#EDE9FE]/50">Loading your videos...</p>
       </div>
     );
   }
 
-  // Error
   if (error) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-[#18230F] text-red-400">
-        <AlertCircle className="w-16 h-16 mb-4" />
-        <p className="text-xl font-semibold">{error}</p>
+      <div className="flex flex-col items-center justify-center min-h-[70vh] text-red-400">
+        <AlertCircle className="w-14 h-14 mb-4" />
+        <p className="text-lg font-semibold">{error}</p>
       </div>
     );
   }
 
-  // Empty
   if (videos.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-[#354b22] text-[#A9E6BF]">
-        <Film className="w-20 h-20 mb-6 text-[#255F38]/70" />
-        <p className="text-xl">No videos uploaded yet.</p>
-        <p className="text-[#A9E6BF]/60 mt-2">Upload your first video to get started 🎥</p>
+      <div className="flex flex-col items-center justify-center min-h-[70vh] text-[#EDE9FE]/30">
+        <div className="w-20 h-20 rounded-2xl bg-[#7C3AED]/10 border border-[#7C3AED]/20 flex items-center justify-center mb-6">
+          <Film className="w-10 h-10 text-[#7C3AED]/50" />
+        </div>
+        <p className="text-xl text-white font-bold">No videos yet</p>
+        <p className="text-sm text-[#EDE9FE]/30 mt-2">Upload your first video to get started 🎬</p>
       </div>
     );
   }
 
   return (
     <motion.div
-      className="min-h-screen bg-[#040900] text-[#EAF7F0] px-6 py-10"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.4 }}
+      initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}
     >
-      {/* HEADER */}
+      {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8">
-        <h1 className="text-4xl font-extrabold flex items-center gap-3 text-[#A9E6BF] tracking-wide">
-          <Film className="w-9 h-9 text-[#255F38]" />
-          Your Video Library
-        </h1>
-
-        <p className="text-[#A9E6BF]/70 mt-3 sm:mt-0 text-lg">
-          {videos.length} video{videos.length > 1 && "s"} available
-        </p>
+        <div>
+          <p className="text-[#A78BFA] text-xs tracking-[0.2em] uppercase mb-1">Your Collection</p>
+          <h1 className="text-3xl font-black text-white flex items-center gap-3">
+            <Film className="w-7 h-7 text-[#7C3AED]" />
+            Video Library
+          </h1>
+        </div>
+        <div className="mt-3 sm:mt-0 px-4 py-2 rounded-full bg-[#7C3AED]/10 border border-[#7C3AED]/20 text-sm text-[#A78BFA]">
+          {videos.length} video{videos.length !== 1 && "s"}
+        </div>
       </div>
 
-      {/* GRID */}
+      {/* Grid */}
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7"
-        initial="hidden"
-        animate="visible"
-        variants={{
-          hidden: {},
-          visible: { transition: { staggerChildren: 0.12 } },
-        }}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+        initial="hidden" animate="visible"
+        variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
       >
         {videos.map((video) => (
-          <motion.div
-            key={video.id}
-            variants={{
-              hidden: { opacity: 0, y: 35 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            className="hover:scale-[1.03] transition-transform duration-300"
-          >
-            <VideoCard video={video} onDownload={handleDownload} />
+          <motion.div key={video.id}
+            variants={{ hidden: { opacity: 0, y: 25 }, visible: { opacity: 1, y: 0 } }}>
+            <VideoCard video={video} onDownload={handleDownload} onDelete={handleDelete} />
           </motion.div>
         ))}
       </motion.div>
@@ -132,4 +122,3 @@ function Home() {
 }
 
 export default Home;
-
